@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 let
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -6,7 +6,7 @@ in
 {
     programs.spicetify = {
         enable = true;
-        
+
         enabledExtensions = with spicePkgs.extensions; [
             adblock
             hidePodcasts
@@ -17,11 +17,15 @@ in
             # newReleases
             ncsVisualizer
             ({
+                name = "iv-lyrics";
                 src = builtins.fetchTarball {
                      url = "https://github.com/ivLis-Studio/ivLyrics/archive/v4.3.2.tar.gz";
                      sha256 = "11dm53askc3sgirlf18n8irjm5j5b18jfin48qswfz0rrnmhiwgc";
                 };
-                name = "index.js";
+            })
+            ({
+                name = "listening-stats";
+                src = ./listening-stats;
             })
         ];
 
