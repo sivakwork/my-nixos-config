@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  win10Hook = ../scripts/vm/win10;
+in
 {
     virtualisation.libvirtd.enable = true;
     virtualisation.libvirtd.qemu.package = pkgs.qemu_kvm;
@@ -10,7 +13,9 @@
         chmod 755 /var/lib/libvirt/hooks
 
         rm -rf /var/lib/libvirt/hooks/qemu/win10
-        cp -r ./scripts/vm/win10 /var/lib/libvirt/hooks/qemu.d/
+        echo "current dir:"
+        pwd
+        cp -r ${win10Hook} /var/lib/libvirt/hooks/qemu.d/
 
         chmod -R +x /var/lib/libvirt/hooks/qemu.d
     '';
