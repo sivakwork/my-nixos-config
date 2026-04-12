@@ -33,6 +33,7 @@
     useXkbConfig = false; # use xkb.options in tty.
   };
 
+  services.openssh.enable = true;
   services.envfs.enable = true;
   services.flatpak.enable = true;
   services.blueman.enable = true;
