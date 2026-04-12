@@ -5,5 +5,7 @@
         wget
         git
         btop
+        docker-compose
+        lazydocker
     ];
 }
