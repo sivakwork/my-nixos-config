@@ -15,7 +15,14 @@ in
 
         enabledCustomApps = with spicePkgs.apps; [
             # newReleases
-            # ncsVisualizer
+            ncsVisualizer
+            ({
+                src = builtins.fetchTarball {
+                     url = "https://github.com/ivLis-Studio/ivLyrics/archive/v4.3.2.tar.gz";
+                     sha256 = "11dm53askc3sgirlf18n8irjm5j5b18jfin48qswfz0rrnmhiwgc";
+                };
+                name = "index.js";
+            })
         ];
 
         enabledSnippets = with spicePkgs.snippets; [
@@ -23,6 +30,7 @@ in
             # pointer
         ];
 
-        theme = spicePkgs.themes.blossom;
+        theme = spicePkgs.themes.dribbblish;
+        colorScheme = "lunar";
     };
 }
