@@ -2,10 +2,7 @@
 
 {
     imports = [
-        ./modules/git.nix
-        ./modules/packages.nix
-        ./modules/spicetify.nix
-        ./modules/vesktop.nix
+        ./modules/default.nix
         inputs.spicetify-nix.homeManagerModules.default
     ];
 

@@ -6,10 +6,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./modules/hardware-configuration.nix
-      ./modules/gaming.nix
-      ./modules/packages.nix
-      ./modules/virtualization.nix
+      ./modules/default.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -18,7 +15,7 @@
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.users.sivak = import ./home/home.nix;
+  home-manager.users.sivak = import ../home/home.nix;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

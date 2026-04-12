@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  win10Hook = ../scripts/vm/win10;
+  win10Hook = ../../scripts/vm/win10;
 in
 {
     virtualisation.libvirtd.enable = true;
