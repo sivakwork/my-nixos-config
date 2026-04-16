@@ -1,33 +1,27 @@
 #!/run/current-system/sw/bin/bash
-# Helpful to read output when debugging
 set -x
 
 # Stop display manager
-systemctl stop display-manager.service
-## Uncomment the following line if you use GDM
-#killall gdm-x-session
-sudo rmmod nvidia_drm
-sudo rmmod nvidia_uvm
-sudo rmmod nvidia_modeset
-sudo rmmod nvidia
+systemctl stop display-manager
+systemctl --user -M sivak@ stop plasma*
 
-# Unbind VTconsoles
+# Unbind VTconsoles: might not be needed
 echo 0 > /sys/class/vtconsole/vtcon0/bind
 echo 0 > /sys/class/vtconsole/vtcon1/bind
 
-# echo 0 > /sys/class/vtconsole/vtcon1/bind
+# Unbind EFI Framebuffer
+echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
 
-# Unbind EFI-Framebuffer
-#echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
+# Unload NVIDIA kernel modules
+modprobe -r nvidia_drm nvidia_modeset nvidia_uvm nvidia
 
-# Avoid a Race condition by waiting 2 seconds. This can be calibrated to be shorter or longer if required for your system
-sleep 2
+# Unload AMD kernel module
+# modprobe -r amdgpu
 
-# Unbind the GPU from display driver
+# Detach GPU devices from host
+# Use your GPU and HDMI Audio PCI host device
 virsh nodedev-detach pci_0000_01_00_0
 virsh nodedev-detach pci_0000_01_00_1
 
-# Load VFIO Kernel Module
-modprobe vfio
+# Load vfio module
 modprobe vfio-pci
-modprobe vfio_iommu_type1

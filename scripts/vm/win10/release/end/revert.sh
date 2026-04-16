@@ -1,27 +1,32 @@
 #!/run/current-system/sw/bin/bash
 set -x
 
-# Re-Bind GPU to Nvidia Driver
+# Attach GPU devices to host
+# Use your GPU and HDMI Audio PCI host device
+echo "0000:01:00.0" > /sys/bus/pci/drivers/vfio-pci/unbind
+echo "0000:01:00.1" > /sys/bus/pci/drivers/vfio-pci/unbind
+
 virsh nodedev-reattach pci_0000_01_00_0
 virsh nodedev-reattach pci_0000_01_00_1
 
-modprobe -r vfio_pci
-modprobe -r vfio_iommu_type1
-modprobe -r vfio
+# Unload vfio module
+modprobe -r vfio-pci
 
-# Rebind VT consoles
-echo 1 > /sys/class/vtconsole/vtcon0/bind
-echo 0 > /sys/class/vtconsole/vtcon1/bind
-# Some machines might have more than 1 virtual console. Add a line for each corresponding VTConsole
-#echo 1 > /sys/class/vtconsole/vtcon1/bind
+# Load AMD kernel module
+#modprobe amdgpu
 
-#nvidia-xconfig --query-gpu-info > /dev/null 2>&1
-#echo "efi-framebuffer.0" > /sys/bus/platform/drivers/efi-framebuffer/bind
+# Rebind framebuffer to host
+echo "efi-framebuffer.0" > /sys/bus/platform/drivers/efi-framebuffer/bind
 
-modprobe nvidia
+# Load NVIDIA kernel modules
+modprobe nvidia_drm
 modprobe nvidia_modeset
 modprobe nvidia_uvm
-modprobe nvidia_drm
+modprobe nvidia
+
+# Bind VTconsoles: might not be needed
+echo 1 > /sys/class/vtconsole/vtcon0/bind
+echo 1 > /sys/class/vtconsole/vtcon1/bind
 
 # Restart Display Manager
-systemctl start display-manager.service
+systemctl start display-manager
