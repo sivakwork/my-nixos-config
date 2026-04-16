@@ -5,6 +5,10 @@ set -x
 systemctl stop display-manager
 systemctl --user -M sivak@ stop plasma*
 
+while systemctl is-active --quiet display-manager; do
+  sleep 0.2
+done
+
 # Unbind VTconsoles: might not be needed
 echo 0 > /sys/class/vtconsole/vtcon0/bind
 echo 0 > /sys/class/vtconsole/vtcon1/bind
