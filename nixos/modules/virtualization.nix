@@ -3,15 +3,7 @@
 let
   win10Hook = ../../scripts/vm/win10;
 in
-{
-    virtualisation.docker = {
-        enable = true;
-        rootless = {
-            enable = true;
-            setSocketVariable = true;
-        };
-    };
-    
+{   
     virtualisation.libvirtd.enable = true;
     virtualisation.libvirtd.qemu.package = pkgs.qemu_kvm;
     programs.virt-manager.enable = true;
