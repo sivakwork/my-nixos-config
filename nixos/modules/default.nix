@@ -7,5 +7,6 @@
         ./packages.nix
         ./virtualization.nix
         ./mount-server.nix
+        ./networking.nix
     ];
 }

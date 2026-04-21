@@ -8,9 +8,14 @@
             "IdentityFile=/home/sivak/.ssh/id_ed25519"
             "allow_other"
             "idmap=user"
+            "_netdev"
             "reconnect"
-            "x-systemd.automount"
+            "StrictHostKeyChecking=accept-new"
             "user"
+            "nofail"
+            "x-systemd.automount"
+            "x-systemd.mount-timeout=5"
+            "x-systemd.device-timeout=5"
         ];
     };
     services.avahi = {
