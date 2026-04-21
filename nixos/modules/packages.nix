@@ -9,5 +9,6 @@
         cava
         kurve
         btop
+        inetutils
     ];
 }
