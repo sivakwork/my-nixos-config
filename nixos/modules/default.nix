@@ -6,5 +6,6 @@
         ./gaming.nix
         ./packages.nix
         ./virtualization.nix
+        ./mount-server.nix
     ];
 }
