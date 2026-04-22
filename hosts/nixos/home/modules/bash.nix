@@ -5,6 +5,7 @@
         enable = true;
         shellAliases = {
             rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
+            rebuild-server = "sudo nixos-rebuild switch --flake .#server --target-host root@server.local";
         };
 
         initExtra = ''
