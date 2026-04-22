@@ -25,7 +25,7 @@ in
             })
             ({
                 name = "listening-stats";
-                src = ./listening-stats;
+                src = ./extensions/listening-stats;
             })
         ];
 

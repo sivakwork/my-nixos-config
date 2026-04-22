@@ -2,9 +2,12 @@
 
 {
     imports = [
+        ./spicetify/default.nix
         ./git.nix
         ./packages.nix
-        ./spicetify.nix
+        ./vscode.nix
         ./vesktop.nix
+        ./bash.nix
+        ./configuration.nix
     ];
 }

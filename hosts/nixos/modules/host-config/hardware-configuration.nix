@@ -40,7 +40,5 @@
     nvidiaSettings = true;
     open = false;
   };
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

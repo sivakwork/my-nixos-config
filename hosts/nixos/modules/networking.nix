@@ -6,7 +6,7 @@
 
 {
     # Mount my server
-    fileSystems."/home/sivak/server" = {
+    fileSystems."/mnt/server" = {
         device = "root@server.local:/";
         fsType = "fuse.sshfs";
         options = [
@@ -24,21 +24,16 @@
         ];
     };
     boot.supportedFilesystems."fuse.sshfs" = true;
-
-    # Expose as {hostname}.local
-    services.avahi = {
-        enable = true;
-        nssmdns4 = true;
-        nssmdns6 = true;
-        publish = {
-            enable = true;
-            addresses = true;
-        };
-    };
-
-    services.iperf3 = {
-        enable = true;
-        openFirewall = true;
-    };
-
+    
+    # This service slows down boot wait... i dont even use wifi... i could just static ip, ill change it late tooo lzyy
+    boot.initrd.systemd.network.wait-online.enable = false;
+    systemd.services.NetworkManager-wait-online.enable = false;
+    
+    # Network
+    networking.networkmanager.enable = true;
+    
+    # Bluetooth
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
+    services.blueman.enable = true;
 }

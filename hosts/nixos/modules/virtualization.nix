@@ -1,7 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  win10Hook = ../../scripts/vm/win10;
+  win10Hook = ../../../scripts/vm/win10;
+  qemuFile = ../../../scripts/vm/qemu;
 in
 {   
     virtualisation.libvirtd.enable = true;
@@ -9,6 +10,9 @@ in
     programs.virt-manager.enable = true;
     
     systemd.services.libvirtd.preStart = ''
+        rm /var/lib/libvirt/hooks/qemu
+        cp -r ${qemuFile} /var/lib/libvirt/hooks/
+
         mkdir -p /var/lib/libvirt/hooks
         chmod 755 /var/lib/libvirt/hooks
 
