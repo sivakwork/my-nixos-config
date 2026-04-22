@@ -10,7 +10,7 @@ in
     programs.virt-manager.enable = true;
     
     systemd.services.libvirtd.preStart = ''
-        rm /var/lib/libvirt/hooks/qemu
+        rm -rf /var/lib/libvirt/hooks/qemu
         cp -r ${qemuFile} /var/lib/libvirt/hooks/
 
         mkdir -p /var/lib/libvirt/hooks
