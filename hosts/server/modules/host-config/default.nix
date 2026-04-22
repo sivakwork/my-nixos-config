@@ -2,8 +2,8 @@
 
 {
     imports = [
-        ./networking.nix
-        ./packages.nix
         ./host-configuration.nix
+        ./hardware-configuration.nix
+        ./users.nix
     ];
 }
