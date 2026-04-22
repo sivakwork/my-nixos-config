@@ -6,6 +6,7 @@ let
         git
         btop
         inetutils
+        fastfetch
     ];
 in
 {

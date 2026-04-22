@@ -6,7 +6,6 @@
         firefox
 
         # CLI / Dev Tools
-        fastfetch
         nodejs
     ];
 }
