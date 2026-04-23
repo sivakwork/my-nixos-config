@@ -4,7 +4,7 @@
     imports = [
         ./host-config/default.nix
         ./sound.nix
-        ./networking.nix
+        ./networking/default.nix
         ./packages.nix
         ./tools.nix
     ];

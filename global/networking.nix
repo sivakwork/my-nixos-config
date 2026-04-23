@@ -19,6 +19,11 @@
         openFirewall = true;
     };
 
+    networking.nameservers = [
+        "1.1.1.1"
+        "8.8.8.8"
+    ];
+
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];
     # networking.firewall.allowedUDPPorts = [ ... ];
