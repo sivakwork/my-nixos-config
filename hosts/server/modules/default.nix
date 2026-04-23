@@ -3,8 +3,9 @@
 {
     imports = [
         ./host-config/default.nix
-        ./sound.nix
         ./networking/default.nix
+        ./containers/default.nix
+        ./sound.nix
         ./packages.nix
         ./tools.nix
     ];
