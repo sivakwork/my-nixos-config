@@ -8,11 +8,12 @@ in
     virtualisation.libvirtd.enable = true;
     virtualisation.libvirtd.qemu.package = pkgs.qemu_kvm;
     programs.virt-manager.enable = true;
-    
-    systemd.services.libvirtd.preStart = ''
-        rm -rf /var/lib/libvirt/hooks/qemu
-        cp -r ${qemuFile} /var/lib/libvirt/hooks/
+    environment.etc."/var/lib/libvirt/hooks/qemu" ={
+        source = qemuFile;
+        mode = "0755";
+    };
 
+    systemd.services.libvirtd.preStart = ''
         mkdir -p /var/lib/libvirt/hooks
         chmod 755 /var/lib/libvirt/hooks
 

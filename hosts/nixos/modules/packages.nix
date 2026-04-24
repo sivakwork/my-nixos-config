@@ -14,6 +14,7 @@
         tigervnc
         sshfs
         cava
+        psmisc
     ];
     services.flatpak.enable = true;
 }
