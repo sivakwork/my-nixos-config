@@ -5,19 +5,21 @@
 # dedicatedServer.openFirewall
 
 {
+    my.tmpfiles.rules = [
+        "d /mnt/server 0755 sivak sivak -"
+    ];
+
     # Mount my server
     fileSystems."/mnt/server" = {
         device = "root@server.local:/";
         fsType = "fuse.sshfs";
         options = [
             "IdentityFile=/home/sivak/.ssh/id_ed25519"
-            "allow_other"
             "idmap=user"
             "_netdev"
             "reconnect"
             "StrictHostKeyChecking=accept-new"
             "user"
-            "nofail"
             "x-systemd.automount"
             "x-systemd.mount-timeout=5"
             "x-systemd.device-timeout=5"
