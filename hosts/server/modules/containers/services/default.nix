@@ -4,6 +4,6 @@
     imports = [
       ./nginx.nix
       ./adguard-home.nix
-      ./minecraft.nix
+      # ./minecraft.nix
     ];
 }

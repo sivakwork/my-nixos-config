@@ -11,10 +11,12 @@
     ];
 
     environment.systemPackages = with pkgs; [
+        spice-gtk
         tigervnc
         sshfs
         cava
         psmisc
+        pavucontrol
     ];
     services.flatpak.enable = true;
 }

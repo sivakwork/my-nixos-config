@@ -14,6 +14,7 @@
   boot.extraModulePackages = [ ];
   boot.kernelParams = [
 #     "vfio_iommu_type1.allow_unsafe_interrupts=1" # Nuh uh to linux tryna steal ts
+    "intel_pstate=disable"
     "intel_iommu=on"
     "iommu=pt"
   ];

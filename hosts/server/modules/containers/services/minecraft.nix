@@ -2,7 +2,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  modpackName = "atm11";
+  modpackName = "create-i";
 in
 {
     my.tmpfiles.rules = [
@@ -16,12 +16,12 @@ in
           EULA = "TRUE";
           TYPE = "CURSEFORGE";
           CF_SERVER_MOD = "/modpacks/${modpackName}.zip";
-          INIT_MEMORY = "1.5G";
+          INIT_MEMORY = "2G";
           MAX_MEMORY = "6G";
           TZ = "America/Montreal";
 
           OVERRIDE_SERVER_PROPERTIES = "true";
-          MOTD = "The bois ATM11 server";
+          MOTD = "The Bois server";
           ALLOW_FLIGHT = "true";
           ONLINE_MODE = "false";
           MAX_TICK_TIME = "-1";
