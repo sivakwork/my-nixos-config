@@ -17,6 +17,7 @@
         cava
         psmisc
         pavucontrol
+        lutris
     ];
     services.flatpak.enable = true;
 }

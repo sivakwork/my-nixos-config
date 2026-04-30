@@ -15,8 +15,14 @@
     services.blueman.enable = true;
 
     networking.firewall = {
-      enable = true;
-      trustedInterfaces = [ "wg0" ];
-      allowedUDPPorts = [ 51820 ];
+        enable = true;
+        trustedInterfaces = [ "wg0" ];
+        allowedTCPPorts = [
+            25565 # Minecraft Java
+        ];
+        allowedUDPPorts = [
+            51820 # Wireguard
+            19132 # Minecraft Bedrock
+        ];
     };
 }

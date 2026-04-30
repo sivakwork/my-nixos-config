@@ -41,5 +41,6 @@
     nvidiaSettings = true;
     open = false;
   };
+  hardware.graphics.enable32Bit = true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

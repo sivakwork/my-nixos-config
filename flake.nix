@@ -3,12 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-24_05.url = "github:NixOS/nixpkgs/24.05";
     home-manager.url = "github:nix-community/home-manager/master";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, minegrub-theme }:
+  outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, nixpkgs-24_05, minegrub-theme }:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
