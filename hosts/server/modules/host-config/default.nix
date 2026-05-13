@@ -5,5 +5,6 @@
         ./host-configuration.nix
         ./hardware-configuration.nix
         ./users.nix
+        ./desktop-env.nix
     ];
 }

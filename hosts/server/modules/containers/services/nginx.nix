@@ -7,23 +7,23 @@
         "d /var/www 0755 root root -"
     ];
     
-    virtualisation.oci-containers.containers.nginx = {
-        image = "uozi/nginx-ui:latest";
-        environment.TZ = "America/Montreal";
-        volumes = [
-            "/srv/containers/nginx/nginx:/etc/nginx"
-            "/srv/containers/nginx/nginx-ui:/etc/nginx-ui"
-            "/var/www:/var/www"
-            "/run/podman/podman.sock:/var/run/docker.sock"
-        ];
-        ports = [
-            "8080:80"
-            "8443:443"
-        ];
-        extraOptions = [
-            "--name=nginx-ui"
-        ];
-    };
+    # virtualisation.oci-containers.containers.nginx = {
+    #     image = "uozi/nginx-ui:latest";
+    #     environment.TZ = "America/Montreal";
+    #     volumes = [
+    #         "/srv/containers/nginx/nginx:/etc/nginx"
+    #         "/srv/containers/nginx/nginx-ui:/etc/nginx-ui"
+    #         "/var/www:/var/www"
+    #         "/run/podman/podman.sock:/var/run/docker.sock"
+    #     ];
+    #     ports = [
+    #         "8080:80"
+    #         "8443:443"
+    #     ];
+    #     extraOptions = [
+    #         "--name=nginx-ui"
+    #     ];
+    # };
 }
 
 # docker run -dit \
