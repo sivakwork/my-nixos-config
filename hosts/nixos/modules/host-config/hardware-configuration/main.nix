@@ -8,16 +8,10 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "vfio_pci" "vfio" "vfio_iommu_type1" ]; #[ "vfio_pci" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [
-#     "vfio_iommu_type1.allow_unsafe_interrupts=1" # Nuh uh to linux tryna steal ts
-    "intel_pstate=disable"
-    "intel_iommu=on"
-    "iommu=pt"
-  ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/938e7978-2706-4b12-abb6-4a44c3a1c3ff";
@@ -35,12 +29,5 @@
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.graphics.enable = true;
-  hardware.nvidia = {
-    modesetting.enable = true;
-    nvidiaSettings = true;
-    open = false;
-  };
-  hardware.graphics.enable32Bit = true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

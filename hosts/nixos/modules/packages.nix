@@ -3,24 +3,36 @@
 {
 
     environment.systemPackages = with pkgs; [
-        spice-gtk
-        tigervnc
-        sshfs
-        cava
+        # Design
+        freecad
+        
+        # Utils
         psmisc
-        melt
+        qdiskinfo
+
+        # Networking
+        sshfs
+        tigervnc
+        spice-gtk
+
+        # Audio / Video
+        cava
+        pavucontrol
+
+        # Storage
+        zfs
+
+        # Gaming / Compatability
         winetricks
         protontricks
-        pavucontrol
-        unityhub
         protonup-qt
-        lutris
+        unityhub
     ];
     services.flatpak.enable = true;
     
     my.unfreePackages = [
         # Nvidia
-
+        "nvidia-kernel-modules"
         "nvidia-x11"
         "nvidia-settings"
 

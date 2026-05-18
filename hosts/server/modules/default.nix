@@ -8,5 +8,6 @@
         ./sound.nix
         ./packages.nix
         ./tools.nix
+        ./cockpit.nix
     ];
 }

@@ -3,7 +3,8 @@
 {
     home.packages = with pkgs; [
         # Apps
-        firefox
+        brave
+        libreoffice
         prismlauncher
 
         # CLI / Dev Tools

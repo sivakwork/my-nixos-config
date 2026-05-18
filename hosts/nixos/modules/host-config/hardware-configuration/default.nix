@@ -2,5 +2,7 @@
 
 {
     imports = [
+        ./main.nix
+        ./extend.nix
     ];
 }

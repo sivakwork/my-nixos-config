@@ -5,6 +5,12 @@ let
   qemuFile = ../../../scripts/vm/qemu;
 in
 {   
+    boot.kernelParams = [
+        "intel_iommu=on"
+        "iommu=pt"
+    ];
+
+    boot.initrd.kernelModules = [ "vfio_pci" "vfio" "vfio_iommu_type1" ]; #[ "vfio_pci" ];
     virtualisation.libvirtd.enable = true;
     virtualisation.libvirtd.qemu.package = pkgs.qemu_kvm;
     programs.virt-manager.enable = true;

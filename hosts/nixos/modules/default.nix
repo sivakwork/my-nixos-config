@@ -7,6 +7,5 @@
         ./packages.nix
         ./virtualization.nix
         ./networking.nix
-        ./blender.nix
     ];
 }

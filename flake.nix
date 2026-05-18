@@ -40,7 +40,6 @@
       
       modules = [
         ./hosts/server/default.nix
-        sops-nix.nixosModules.sops
       ];
     };
   };
