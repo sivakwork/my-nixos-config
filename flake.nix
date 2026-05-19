@@ -17,6 +17,7 @@
     nixpkgs-24_05.url = "github:NixOS/nixpkgs/24.05";
     home-manager.url = "github:nix-community/home-manager/master";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    disko.url = "github:nix-community/disko";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, nixpkgs-24_05 }:
@@ -27,6 +28,7 @@
       
       modules = [
         ./hosts/nixos/default.nix
+        disko.nixosModules.disko
         home-manager.nixosModules.home-manager 
         {
           home-manager.extraSpecialArgs = { inherit inputs; };
@@ -39,6 +41,7 @@
       specialArgs = { inherit inputs; };
       
       modules = [
+        disko.nixosModules.disko
         ./hosts/server/default.nix
       ];
     };
