@@ -8,24 +8,49 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" ];
+  boot.initrd.availableKernelModules = [ "ehci_pci" "ata_piix" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/938e7978-2706-4b12-abb6-4a44c3a1c3ff";
-      fsType = "ext4";
+    { device = "zroot/root";
+      fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E261-7CA0";
+    { device = "/dev/disk/by-uuid/4E10-6460";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  fileSystems."/etc" =
+    { device = "zroot/root/etc";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    { device = "zroot/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/nix" =
+    { device = "zroot/nix";
+      fsType = "zfs";
+    };
+
+  fileSystems."/srv" =
+    { device = "zroot/srv";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var" =
+    { device = "zroot/var";
+      fsType = "zfs";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/02e6cd2a-68d2-43f5-be1c-7e2db104b232"; }
+    [ { device = "/dev/disk/by-uuid/8dce75a2-4d70-471c-84d6-ae9366271cac"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
