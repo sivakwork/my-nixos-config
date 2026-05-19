@@ -15,7 +15,7 @@
   networking.hostId = "940372ee";
   boot.supportedFilesystems = [ "zfs" "nfs" ];
   boot.zfs = {
-    forceImportRoot = false;
+    forceImportRoot = true;
     devNodes = "/dev/disk/by-id";
     extraPools = [ ];
   };

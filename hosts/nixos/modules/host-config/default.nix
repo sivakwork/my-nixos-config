@@ -7,5 +7,6 @@
         ./desktop-env.nix
         ./home-manager.nix
         ./users.nix
+        ./disko.nix
     ];
 }
