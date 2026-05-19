@@ -20,7 +20,7 @@
     disko.url = "github:nix-community/disko";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, nixpkgs-24_05 }:
+  outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, nixpkgs-24_05, disko }:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
