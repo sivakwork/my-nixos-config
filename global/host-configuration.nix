@@ -2,6 +2,7 @@
 
 {
     # nixpkgs.config.allowUnfree = true;
+    services.envfs.enable = true;
     nix.gc = {
         automatic = true;
         dates = "weekly";

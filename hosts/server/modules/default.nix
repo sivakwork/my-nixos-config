@@ -9,5 +9,6 @@
         ./packages.nix
         ./tools.nix
         ./cockpit.nix
+        ./nfs.nix
     ];
 }

@@ -9,6 +9,7 @@
         enable = true;
         device = "nodev"; # "nodev" is used for UEFI
         efiSupport = true;
+        zfsSupport = true;
     };
     boot.loader.efi.canTouchEfiVariables = true;
 }
