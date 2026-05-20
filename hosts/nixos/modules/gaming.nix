@@ -6,9 +6,6 @@ let
   };
 in
 {
-    boot.kernelParams = [
-      "intel_pstate=disable" # Manage CPU preformence urself
-    ];
     programs.steam = {
         enable = true;
         remotePlay.openFirewall = true;

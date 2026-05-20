@@ -1,8 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-    networking.hostName = "nixos";
-    powerManagement.cpuFreqGovernor = "performance";
+    networking.hostName = "laptop";
     # boot.loader.systemd-boot.enable = true;
 
     boot.loader.grub = {

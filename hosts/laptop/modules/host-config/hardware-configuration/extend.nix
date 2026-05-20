@@ -54,6 +54,7 @@
       "quiet"
       "udev.log_level=3"
       "systemd.show_status=auto"
+      "intel_pstate=off"
     ];
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
