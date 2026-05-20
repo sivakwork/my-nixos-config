@@ -24,6 +24,7 @@
     services.flatpak.enable = true;
     
     my.unfreePackages = [
+        "vscode"
         "spotify"
     ];
 }

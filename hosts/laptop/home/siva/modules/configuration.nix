@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ...}:
 
 {
-    home.username = "sivak";
-    home.homeDirectory = "/home/sivak";
+    home.username = "siva";
+    home.homeDirectory = "/home/siva";
     home.stateVersion = "25.11";
 
     xdg.userDirs = {
