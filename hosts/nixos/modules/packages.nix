@@ -13,7 +13,6 @@
         # Networking
         sshfs
         tigervnc
-        spice-gtk
 
         # Audio / Video
         cava

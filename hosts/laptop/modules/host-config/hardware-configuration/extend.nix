@@ -12,7 +12,7 @@
     "xhci_hcd"
   ];
 
-  networking.hostId = "940372ee";
+  networking.hostId = "341902ae";
   boot.supportedFilesystems = [ "zfs" "nfs" ];
   boot.zfs = {
     forceImportRoot = true;
@@ -23,11 +23,6 @@
   services.zfs.trim.enable = true;
 
   hardware.graphics.enable = true;
-  hardware.nvidia = {
-    modesetting.enable = true;
-    nvidiaSettings = true;
-    open = false;
-  };
   hardware.graphics.enable32Bit = true;
 
   fileSystems."/mnt/nfs" = {
@@ -41,24 +36,15 @@
       "x-systemd.idle-timeout=60"
     ];
   };
-  fileSystems."/home/sivak/remote" = {
-    device = "server.local:/home/sivak";
-    fsType = "nfs";
-    options = [
-      "nfsvers=4"
-      "_netdev"
-      "noauto"
-      "x-systemd.automount"
-      "x-systemd.idle-timeout=60"
-    ];
-  };
 
   boot = {
     plymouth = {
       enable = true;
-      theme = "breeze";
+      theme = "hexagon_dots";
       themePackages = with pkgs; [
-        kdePackages.breeze-plymouth
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "hexagon_dots" ];
+        })
       ];
     };
 

@@ -36,6 +36,20 @@
       ];
     };
 
+    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      
+      modules = [
+        ./hosts/laptop/default.nix
+        disko.nixosModules.disko
+        home-manager.nixosModules.home-manager 
+        {
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        }
+      ];
+    };
+
     nixosConfigurations.server = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };

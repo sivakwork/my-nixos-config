@@ -3,7 +3,7 @@
     disk = {
       root = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
@@ -27,7 +27,7 @@
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "zroot";
+                pool = "lpool";
               };
             };
           };
@@ -36,7 +36,7 @@
     };
 
     zpool = {
-      zroot = {
+      lpool = {
         type = "zpool";
         rootFsOptions = {
           mountpoint = "none";
@@ -50,7 +50,6 @@
         datasets = {
           "root" = {
             type = "zfs_fs";
-
             mountpoint = "/";
           };
           "root/etc" = {
@@ -63,11 +62,6 @@
             options.compression = "zstd-3";
             mountpoint = "/var";
           };
-          "srv" = {
-            type = "zfs_fs";
-            options.compression = "zstd";
-            mountpoint = "/srv";
-          };
           "nix" = {
             type = "zfs_fs";
             options.compression = "zstd";
@@ -76,7 +70,7 @@
           };
           "home" = {
             type = "zfs_fs";
-            mountpgamesoint = "/home";
+            mountpoint = "/home";
           };
           "media" = {
             type = "zfs_fs";
@@ -99,12 +93,6 @@
             options.compression = "zstd-7";
             options.recordsize = "1M";
             mountpoint = "/media/raw";
-          };
-          "media/archive" = {
-            type = "zfs_fs";
-            options.compression = "zstd-19";
-            options.recordsize = "1M";
-            mountpoint = "/media/archive";
           };
         };
       };

@@ -5,7 +5,6 @@
 # dedicatedServer.openFirewall
 
 {
-    # This service slows down boot wait... i dont even use wifi... i could just static ip, ill change it late tooo lzyy
     boot.initrd.systemd.network.wait-online.enable = false;
     systemd.services.NetworkManager-wait-online.enable = false;
     
