@@ -6,6 +6,7 @@
         shellAliases = {
             rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
             rebuild-server = "nixos-rebuild switch --flake .#server --target-host root@server.local";
+            rebuild-laptop = "nixos-rebuild switch --flake .#server --target-host root@laptop.local";
             nixcmd-gc = "nix-collect-garbage -d";
             nixcmd-gc-server = "ssh server.local nix-collect-garbage -d";
         };

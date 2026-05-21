@@ -76,7 +76,7 @@
           };
           "home" = {
             type = "zfs_fs";
-            mountpgamesoint = "/home";
+            mountpoint = "/home";
           };
           "media" = {
             type = "zfs_fs";

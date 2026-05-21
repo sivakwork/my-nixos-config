@@ -7,6 +7,7 @@
         ./packages.nix
         ./virtualization.nix
         ./networking.nix
-        ./sound.nix
+        ./nix-ld.nix
+        ./usbmuxd.nix
     ];
 }
