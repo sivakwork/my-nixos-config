@@ -8,6 +8,10 @@
         
         # Utils
         psmisc
+        busybox
+        libirecovery
+        libimobiledevice
+        idevicerestore
         qdiskinfo
 
         # Networking
