@@ -11,6 +11,7 @@
     allowed-origins = [
       "https://192.168.18.3:9001"
       "https://server.local:9001"
+      "https://server.sivak.work"
     ];
   };
 }

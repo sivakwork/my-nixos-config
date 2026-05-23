@@ -4,11 +4,10 @@
     imports = [
         ./host-config/default.nix
         ./networking/default.nix
-        ./containers/default.nix
+        ./services/default.nix
         ./sound.nix
         ./packages.nix
         ./tools.nix
-        ./cockpit.nix
         ./nfs.nix
     ];
 }
