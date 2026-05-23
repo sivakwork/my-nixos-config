@@ -5,8 +5,13 @@ let
     packages = with pkgs; [
         git
         btop
-        inetutils
         fastfetch
+        sops
+        
+        # Utils 
+        inetutils # Networking
+        busybox # Commons
+        age # Age Cryptographys
     ];
 in
 {

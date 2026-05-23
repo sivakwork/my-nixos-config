@@ -13,14 +13,28 @@
   };
 
   inputs = {
+    # Offical Nixos Package Sources
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-24_05.url = "github:NixOS/nixpkgs/24.05";
+    
+    # Declartive partitioning and formatting
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+   
+    # Secrets mangement
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Others
     home-manager.url = "github:nix-community/home-manager/master";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    disko.url = "github:nix-community/disko";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, nixpkgs-24_05, disko }:
+  outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, nixpkgs-24_05, disko, sops-nix}:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -28,6 +42,7 @@
       
       modules = [
         ./hosts/nixos/default.nix
+        ./sops.nix
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager 
         {
@@ -43,7 +58,8 @@
       modules = [
         ./hosts/laptop/default.nix
         disko.nixosModules.disko
-        home-manager.nixosModules.home-manager 
+        home-manager.nixosModules.home-manager
+        ./sops.nix
         {
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
@@ -57,6 +73,7 @@
       modules = [
         disko.nixosModules.disko
         ./hosts/server/default.nix
+        ./sops.nix
       ];
     };
   };

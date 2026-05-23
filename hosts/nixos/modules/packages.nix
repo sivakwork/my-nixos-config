@@ -8,7 +8,6 @@
         
         # Utils
         psmisc
-        busybox
         libirecovery
         libimobiledevice
         idevicerestore
