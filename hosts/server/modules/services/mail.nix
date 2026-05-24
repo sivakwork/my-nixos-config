@@ -119,9 +119,12 @@ in
       '';
 
       "dkim_signing.conf".text = ''
+        enabled = false;
         selector = "default";
         domain = "sivak.work";
-        path = "/srv/containers/rspmd/dkim/sivak.work.key";11334
+        canonicalization = "relaxed/relaxed";
+        sign_headers = "From:To:Subject:Message-ID";
+        path = "/srv/containers/rspmd/dkim/sivak.work.key";
       '';
 
       "worker-controller.inc".text = ''
