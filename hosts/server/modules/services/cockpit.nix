@@ -1,12 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   services.cockpit = {
     enable = true;
     openFirewall = true;
-    plugins = [
-      pkgs.cockpit-zfs
-    ];
+    package = pkgs.cockpit;
     port = 9001;
     allowed-origins = [
       "https://192.168.18.3:9001"

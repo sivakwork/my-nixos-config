@@ -1,13 +1,13 @@
 { config, lib, pkgs, ... }:
 
 {
-    sops.secrets.sivak-passowrd.neededForUsers = true;
-    users.mutableUsers = false;
+    # sops.secrets.sivak-passowrd.neededForUsers = true;
+    # users.mutableUsers = false;
 
     users.users.sivak = {
         isNormalUser = true;
         extraGroups = [ "wheel" ];
-        hashedPasswordFile = config.sops.secrets.sivak-password.path;
+        # hashedPasswordFile = config.sops.secrets.sivak-password.path;
         packages = with pkgs; [
             tree
         ];

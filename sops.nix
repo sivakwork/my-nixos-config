@@ -16,7 +16,9 @@
     };
     secrets = {
       sivak-password = {};
-      duck-dns-token = {};
+      email-ssl-key = {};
+      email-ssl-fullchain = {};
+      sasl-passwd = {};
     };
   };
 

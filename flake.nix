@@ -14,8 +14,13 @@
 
   inputs = {
     # Offical Nixos Package Sources
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-24_05.url = "github:NixOS/nixpkgs/24.05";
+    nixos-25_11-small.url = "github:NixOS/nixpkgs/nixos-25.11-small";
+    
+    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.11";
+    simple-nixos-mailserver.inputs.nixpkgs.follows = "nixos-25_11-small";
     
     # Declartive partitioning and formatting
     disko = {
@@ -30,11 +35,11 @@
     };
 
     # Others
-    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, nixpkgs-24_05, disko, sops-nix}:
+  outputs = inputs@{ self, nixpkgs, home-manager, spicetify-nix, nixpkgs-24_05, disko, sops-nix, simple-nixos-mailserver, nixos-25_11-small, nixpkgs-unstable}:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -71,6 +76,7 @@
       specialArgs = { inherit inputs; };
       
       modules = [
+        simple-nixos-mailserver.nixosModule
         disko.nixosModules.disko
         ./hosts/server/default.nix
         ./sops.nix
