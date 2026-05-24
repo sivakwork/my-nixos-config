@@ -15,10 +15,6 @@
       generateKey = true;
     };
     secrets = {
-      sivak-password = {};
-      email-ssl-key = {};
-      email-ssl-fullchain = {};
-      sasl-passwd = {};
     };
   };
 
