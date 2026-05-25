@@ -16,7 +16,7 @@
 
     networking.firewall = {
         enable = true;
-        trustedInterfaces = [ "wg0" ];
+        trustedInterfaces = [ "wg0" "podman0" ];
         allowedTCPPorts = [
             25565 # Minecraft Java
             8080 # Kodi

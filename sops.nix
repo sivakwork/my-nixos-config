@@ -5,7 +5,6 @@
   ];
 
   sops = {
-
     defaultSopsFile = ./secrets.yaml;
     validateSopsFiles = false;
 
@@ -15,7 +14,18 @@
       generateKey = true;
     };
     secrets = {
+      postfix_dbpasswd = {
+        owner = "postgres";
+        group = "postgres";
+        mode = "0400";
+      };
+      roundcube_dbpasswd = {
+        owner = "postgres";
+        group = "postgres";
+        mode = "0400";
+      };
+      postfix_db_env = {};
+      roundcube_db_env = {};
     };
   };
-
 }

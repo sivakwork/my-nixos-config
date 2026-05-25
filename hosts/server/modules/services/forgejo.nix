@@ -1,9 +1,4 @@
 { lib, pkgs, config, inputs, ... }:
-let 
-  pkgs_unstable = import inputs.nixpkgs-unstable {
-    system = pkgs.system;
-  };
-in
 { 
   networking.firewall.allowedTCPPorts = [
     3000 
@@ -11,7 +6,6 @@ in
   services.forgejo = {
     enable = true;
     database.type = "postgres";
-    package = pkgs_unstable.forgejo;
     lfs.enable = true;
     settings = {
       server = {

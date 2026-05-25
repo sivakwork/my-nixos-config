@@ -5,6 +5,7 @@
         ./forgejo.nix
         ./cockpit.nix
         ./nginx.nix
-        ./mail.nix
+        ./mail/default.nix
+        ./database.nix
     ];
 }
