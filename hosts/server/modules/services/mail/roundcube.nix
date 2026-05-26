@@ -5,6 +5,8 @@
     image = "roundcube/roundcubemail:latest";
     ports = [ "8001:80" ];
     environment = {
+      ROUNDCUBEMAIL_PLUGINS = "archive,zipdownload,managesieve";
+      ROUNDCUBEMAIL_MANAGESIEVE_HOST = "host.containers.internal";
       ROUNDCUBEMAIL_USERNAME_DOMAIN = "sivak.work";
       ROUNDCUBEMAIL_DEFAULT_HOST = "ssl://sivak.work";
       ROUNDCUBEMAIL_DEFAULT_PORT = "993";

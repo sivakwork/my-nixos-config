@@ -12,12 +12,13 @@
   services.dovecot2 = {
     enable = true;
     package = pkgs.dovecot.override { withPgSQL = true; };
-
+    
     settings = {
       dovecot_config_version = "2.4.4";
       mail_uid = "vmail";
       mail_gid = "vmail";
       mail_driver = "maildir";
+      mail_plugin_dir = "${pkgs.dovecot_pigeonhole}/lib/dovecot/modules";
       ssl_server_cert_file = config.myMail.ssl_tls.fullchain; 
       ssl_server_key_file = config.myMail.ssl_tls.key; 
       ssl = "required";
@@ -34,6 +35,12 @@
       "/srv/mail/dovecot/db.conf"
       "/srv/mail/dovecot/lmtp.conf"
       "/srv/mail/dovecot/inbox.conf"
+      "/srv/mail/dovecot/sieve.conf"
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+      swaks # for testing
+      dovecot_pigeonhole
+  ];
 }

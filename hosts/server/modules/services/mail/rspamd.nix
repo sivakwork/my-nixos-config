@@ -27,6 +27,12 @@
         password = "REDACTED";
       '';
 
+      "actions.conf".text = ''
+        add_header = 6;
+        rewrite_subject = 8;
+        reject = 15;
+      '';
+
       "rbl.conf".text = ''
         enabled = true;
         group = "dnsbl";
@@ -48,11 +54,6 @@
           abuseipdb {
             rbl = "dnsbl.abuseipdb.com";
             symbol = "RBL_ABUSEIPDB";
-          }
-          actions {
-            add_header = 6;
-            rewrite_subject = 8;
-            reject = 15;
           }
         }
       '';

@@ -52,12 +52,9 @@
       header_size_limit = "4096000";
       smtp_tls_CAfile = "/etc/ssl/certs/ca-certificates.crt";
 
-      non_smtpd_milters = [
-        "unix:/run/rspamd/rspamd-milter.sock"
-      ];
-      smtpd_milters = [
-        "unix:/run/rspamd/rspamd-milter.sock"
-      ]; 
+      # smtpd_milters = [
+      #   "unix:/run/rspamd/rspamd-milter.sock"
+      # ]; 
       milter_protocol = "6";
       milter_mail_macros = "i {mail_addr} {client_addr} {client_name} {auth_authen}";
 
