@@ -1,3 +1,8 @@
-# My NixOS config
+# Sivak's NixOS config
 
-This config might seem weird or etc because I have not fully figured this out
+Feel free to point out inefficency and offer advice!
+
+### INFO
+
+* Folder structer by type
+* Every Program/Service/etc(like networking) must have options abstracted in appropriation to the hosts
