@@ -6,7 +6,7 @@
         settings = {
             user = {
                 name = "Sivak";
-                email = "141945552+sivakwork@users.noreply.github.com";
+                email = "me@sivak.work";
             };
         };
     };

@@ -5,10 +5,9 @@
         enable = true;
         shellAliases = {
             rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
-            rebuild-server = "nixos-rebuild switch --flake .#server --target-host root@server.local";
-            rebuild-laptop = "nixos-rebuild switch --flake .#server --target-host root@laptop.local";
+            rebuild-remote = "nixos-rebuild switch --flake .#server --target-host root@${1}.local";
             nixcmd-gc = "nix-collect-garbage -d";
-            nixcmd-gc-server = "ssh server.local nix-collect-garbage -d";
+            nixcmd-gc-remote = "ssh ${1}.local nix-collect-garbage -d";
         };
 
         initExtra = ''
