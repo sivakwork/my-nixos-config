@@ -3,7 +3,7 @@ let
     included_files = import ./included_files.nix;
 in hostName: extra:
     let
-        projectLib = ./default.nix { inherit lib; inherit inputs; inherit config; inherit hostName; };
+        projectLib = import ./default.nix { inherit lib; inherit inputs; inherit config; inherit hostName; };
     in
     inputs.nixpkgs.lib.nixosSystem (lib.recursiveUpdate {
     system = "x86_64-linux";
@@ -13,9 +13,11 @@ in hostName: extra:
         inherit projectLib;
     };
     modules = included_files ++ [
-        home-manager.nixosModules.home-manager
+       inputs.sops-nix.nixosModules.sops
+       inputs.disko.nixosModules.disko
+       inputs.home-manager.nixosModules.home-manager
         {
-            home-manager.extraSpecialArgs = { inherit inputs; inherit hostName; inherit projectLib; };
+            home-manager.extraSpecialArgs = lib.recursiveUpdate { inherit inputs; inherit hostName; inherit projectLib; } (extra.specialArgs or {});
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
         }
     ];

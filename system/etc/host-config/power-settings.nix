@@ -1,4 +1,4 @@
-{ config, lib, pkgs, projectLib, hostName ... }:
+{ config, lib, pkgs, projectLib, hostName, ... }:
 let
   condition = hostName == "server" || hostName == "nixos";
   mkIfHost = projectLib.mkif_host;

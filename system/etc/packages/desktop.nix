@@ -1,4 +1,4 @@
-{ config, lib, pkgs, isDesktop ... }:
+{ config, lib, pkgs, isDesktop, ... }:
 
 {
     environment.systemPackages = lib.mkIf isDesktop (with pkgs; [

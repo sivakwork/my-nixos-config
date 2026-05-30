@@ -1,5 +1,5 @@
 { projectLib, ... }:
 
 {
-  imports = projectLib.by_host.files ./host-specific;
+  imports = projectLib.by_host.dirs ./host-specific;
 }

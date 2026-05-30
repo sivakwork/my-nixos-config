@@ -1,7 +1,7 @@
-{ config, lib, pkgs ... }:
+{ config, lib, pkgs, ... }:
 
 {
-    environment.systemPackages = lib.mkIf config.username == "sivak" (with pkgs; [
+    home.packages = lib.mkIf (config.home.username == "sivak") (with pkgs; [
         prismlauncher
     ]);
 }

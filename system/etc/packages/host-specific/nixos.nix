@@ -16,7 +16,7 @@
         unityhub
     ];
     
-    my.unfreePackages = [
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)  [
         # Nvidia
         "nvidia-kernel-modules"
         "nvidia-x11"

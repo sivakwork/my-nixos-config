@@ -1,4 +1,4 @@
-{ projectLib, ...}:
+{ projectLib, pkgs, ...}:
 let 
   mkIfHost = projectLib.mkif_host;
 in 

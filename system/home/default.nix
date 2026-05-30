@@ -6,5 +6,5 @@ in {
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
 
-  imports = import_helpers.importFiles ./users
+  imports = import_helpers.importFiles ./users;
 }

@@ -1,10 +1,11 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, lib, hostName, ... }:
 
 let
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    condition = (config.home.username == "sivak" && (hostName == "nixos" || hostName == "laptop"));
 in
 {
-    programs.spicetify = {
+    programs.spicetify = lib.mkIf condition {
         enable = true;
 
         enabledExtensions = with spicePkgs.extensions; [

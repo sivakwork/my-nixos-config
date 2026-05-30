@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, hostName, ... }:
 
 let 
     settings = {
@@ -19,10 +19,11 @@ let
             FakeNitro.enabled = true;
         };
     };
+    condition = (config.home.username == "sivak" && (hostName == "nixos" || hostName == "laptop"));
 in
 {
 
-    programs.vesktop = {
+    programs.vesktop = lib.mkIf condition {
         enable = true;
         settings = settings;
         vencord.themes = {};

@@ -53,7 +53,7 @@ in
         };
         options.ashift = "12";
 
-        datasets = mkBase (mkMedia {})
+        datasets = mkBase (mkMedia {});
       };
     };
   };
