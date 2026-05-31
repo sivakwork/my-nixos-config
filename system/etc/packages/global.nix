@@ -18,4 +18,23 @@
         # Storage
         zfs
     ];
+
+        nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)  [
+        # Nvidia
+        "nvidia-kernel-modules"
+        "nvidia-x11"
+        "nvidia-settings"
+
+        # Steam
+        "steam"
+        "steam-unwrapped"
+        
+        # Unity
+        "unityhub"
+        "corefonts"
+
+        # Others
+        "vscode"
+        "spotify"
+    ];
 }
