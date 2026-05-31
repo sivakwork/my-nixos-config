@@ -22,6 +22,7 @@
     ];  
     extraOptions = [
       "--add-host=host.containers.internal:host-gateway"
+      "--add-host=sivak.work:host-gateway"
     ];
   };
 }

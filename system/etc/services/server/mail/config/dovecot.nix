@@ -16,7 +16,7 @@
   };
 
   sops.templates."dovecot/db.cf" = {
-    path = "/srv/mail/dovecot/db.conf ";
+    path = "/srv/mail/dovecot/db.conf";
     owner = "dovecot2";
     mode = "0400";
     content = ''
@@ -25,7 +25,7 @@
       pgsql localhost {
         parameters {
           user = postfixadmin
-          password = ${config.sops.placeholder."mail_db_passwd"}
+          password = "${config.sops.placeholder."mail_db_passwd"}"
           dbname = postfixadmin
         }
       }
@@ -49,6 +49,7 @@
           WHERE username = '%{user}' AND active = '1'
       }
     '';
+    restartUnits = [ "dovecot.service" ];
   };
   
   environment.etc."/srv/mail/dovecot/inbox.conf" = {
@@ -114,4 +115,11 @@
     }
     '';
   };
+
+  systemd.services.dovecot.restartTriggers = [
+    config.environment.etc."/srv/mail/dovecot/auth.conf".source
+    config.environment.etc."/srv/mail/dovecot/inbox.conf".source
+    config.environment.etc."/srv/mail/dovecot/lmtp.conf".source
+    config.environment.etc."/srv/mail/dovecot/sieve.conf".source
+  ];
 }

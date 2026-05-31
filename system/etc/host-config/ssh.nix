@@ -1,5 +1,5 @@
 { hostName, lib, ... }:
 {
    services.openssh.enable = true;
-   services.openssh.settings.PermitRootLogin = lib.mkIf (hostName == "nixvm") "yes";
+   services.openssh.settings.PermitRootLogin = lib.mkIf (hostName == "nixvm" || hostName == "laptop" || hostName == "server") "yes";
 }

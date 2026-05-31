@@ -44,7 +44,7 @@
       smtpd_sasl_auth_enable = "yes";
 
       # --- OUTBOUND ---
-      relayhost = [ "[smtp.resend.com]:587" ];
+      relayhost = [ "[mail.smtp2go.com]:2525" ];
       smtp_sasl_password_maps = "hash:/srv/mail/postfix/sasl_passwd";
       smtp_sasl_auth_enable = "yes";
       smtp_tls_security_level = "encrypt";
