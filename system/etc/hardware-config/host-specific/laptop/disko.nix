@@ -1,9 +1,3 @@
-{ lib, ... }:
-let 
-  diskoUtils = import ../../disko-utils/default.nix { inherit lib; };
-  mkBase = diskoUtils.mkBase;
-  mkMedia = diskoUtils.mkMedia;
-in
 {
   disko.devices = {
     disk = {
@@ -53,7 +47,54 @@ in
         };
         options.ashift = "12";
 
-        datasets = mkBase (mkMedia {});
+        datasets = {
+          "root" = {
+            type = "zfs_fs";
+            mountpoint = "/";
+          };
+          "root/etc" = {
+            type = "zfs_fs";
+            options.compression = "zstd-3";
+            mountpoint = "/etc";
+          };
+          "var" = {
+            type = "zfs_fs";
+            options.compression = "zstd-3";
+            mountpoint = "/var";
+          };
+          "nix" = {
+            type = "zfs_fs";
+            options.compression = "zstd";
+            options.mountpoint = "/nix";
+            mountpoint = "/nix";
+          };
+          "home" = {
+            type = "zfs_fs";
+            mountpoint = "/home";
+          };
+          "media" = {
+            type = "zfs_fs";
+            mountpoint = "/media";
+          };
+          "media/photos" = {
+            type = "zfs_fs";
+            options.compression = "zstd-3";
+            options.recordsize = "1M";
+            mountpoint = "/media/photos";
+          };
+          "media/videos" = {
+            type = "zfs_fs";
+            options.compression = "zstd-3";
+            options.recordsize = "1M";
+            mountpoint = "/media/videos";
+          };
+          "media/raw" = {
+            type = "zfs_fs";
+            options.compression = "zstd-7";
+            options.recordsize = "1M";
+            mountpoint = "/media/raw";
+          };
+        };
       };
     };
   };

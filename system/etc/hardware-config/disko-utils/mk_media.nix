@@ -1,7 +1,7 @@
 { lib }:
 extra:
   lib.recursiveUpdate {
-  "media" = {
+    "media" = {
       type = "zfs_fs";
       mountpoint = "/media";
     };

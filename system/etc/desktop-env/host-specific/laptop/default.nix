@@ -10,5 +10,4 @@
 		};
 		displayManager.defaultSession = "cinnamon";
     };
-    
 }
