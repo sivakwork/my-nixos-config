@@ -2,7 +2,7 @@
 
 let
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-    condition = (config.home.username == "sivak" && (hostName == "nixos" || hostName == "laptop"));
+    condition = (hostName == "nixos" || hostName == "laptop");
 in
 {
     programs.spicetify = lib.mkIf condition {

@@ -10,7 +10,7 @@
 
         initExtra = ''
             rebuild-remote() {
-                nixos-rebuild switch --flake .#server --target-host root@''$1.local
+                nixos-rebuild switch --flake .#''$1 --target-host root@''$1.local
             }
             nixcmd-gc-remote() {
                 ssh ''$1.local nix-collect-garbage -d

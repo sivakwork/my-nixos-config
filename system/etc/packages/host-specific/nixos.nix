@@ -14,6 +14,9 @@
         protontricks
         protonup-qt
         unityhub
+
+        # Toolchain
+        clang_22
     ];
     
 }
