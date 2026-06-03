@@ -14,7 +14,7 @@ lib.mkIf (hostName == "server" || hostName == "nixos" || hostName == "laptop") {
 
   networking.hostId = builtins.substring 0 8
       (builtins.hashString "md5" config.networking.hostName);
-  boot.supportedFilesystems = [ "zfs" "nfs" ];
+  boot.supportedFilesystems = [ "zfs" ];
   boot.zfs = {
     forceImportRoot = true;
     devNodes = "/dev/disk/by-id";

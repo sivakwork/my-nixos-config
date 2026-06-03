@@ -37,4 +37,5 @@
         "vscode"
         "spotify"
     ];
+    nixpkgs.config.allowUnfree = true;
 }
