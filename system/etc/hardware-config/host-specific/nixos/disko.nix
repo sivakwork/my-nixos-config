@@ -27,36 +27,19 @@ in {
                 type = "swap";
               };
             };
-            zfs = {
+            root = {
               size = "100%";
               content = {
-                type = "zfs";
-                pool = "rpool";
+                type = "filesystem";
+                format = "xfs";
+                mountpoint = "/";
+                mountOptions = [
+                  "defaults"
+                  "noatime"
+                  "inode64"
+                ]
               };
             };
-          };
-        };
-      };
-    };
-
-    zpool = {
-      rpool = {
-        type = "zpool";
-        rootFsOptions = {
-          mountpoint = "none";
-          compression = "lz4";
-          acltype = "posixacl";
-          xattr = "sa";
-          atime = "off";
-        };
-        options.ashift = "12";
-
-        datasets = mkBase {
-          "srv/games" = {
-            type = "zfs_fs";
-            options.compression = "zstd-7";
-            options.recordsize = "1M";
-            mountpoint = "/srv/games";
           };
         };
       };

@@ -1,6 +1,6 @@
 { config, lib, hostName, pkgs, modulesPath, ... }:
 
-lib.mkIf (hostName == "server" || hostName == "nixos" || hostName == "laptop") {
+lib.mkIf (hostName == "server" || hostName == "laptop") {
   boot.initrd.systemd.enable = true;
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.initrd.availableKernelModules = [
