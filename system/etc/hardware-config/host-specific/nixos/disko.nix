@@ -37,7 +37,7 @@ in {
                   "defaults"
                   "noatime"
                   "inode64"
-                ]
+                ];
               };
             };
           };

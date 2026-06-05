@@ -8,7 +8,6 @@ in {
     consoleLogLevel = mkIfHost.laptop 3;
     initrd.verbose = mkIfHost.laptop false;
     kernelParams = [
-      "quiet"
       "nowatchdog"
       "nmi_watchdog=0"
     ];

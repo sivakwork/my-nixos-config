@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  it87BasePath = "/sys/devices/platform/it87.1840";
-in
 {
   services.hardware.openrgb.enable = true;
   systemd.services.fancontrol.enable = true;
@@ -12,14 +9,17 @@ in
     nvtopPackages.nvidia
   ];
   boot.initrd.compressor = "zstd";
-  boot.kernelModules = [ "it87" "coretemp" "lm75" ];
+  boot.kernelModules = [ "it87" "coretemp" ];
   boot.extraModprobeConfig = ''
     options it87 force_id=0x8628
   '';
   boot.initrd.compressorArgs = [ "-1" "-T0" ];
   boot.kernelParams = [
     "mitigations=off"
+    "isolcpus=1-11"
+    "rcu_nocbs=1-11"
     "nohz_full=1-11"
+    "initcall_blacklist=dw_i2c_init_driver"
   ];
   boot.kernel.sysctl = {
     "kernel.numa_balancing" = 1;

@@ -11,7 +11,8 @@
         busybox # Commons
         age # Age Cryptographys
         psmisc # Processes sum
-
+        nix-fast-build
+        
         # Networking
         sshfs
 
@@ -29,10 +30,6 @@
         "steam"
         "steam-unwrapped"
         
-        # Unity
-        "unityhub"
-        "corefonts"
-
         # Others
         "vscode"
         "spotify"

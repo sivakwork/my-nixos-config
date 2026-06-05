@@ -4,6 +4,5 @@
     home.packages = lib.mkIf isDesktop (with pkgs; [
         prismlauncher
         brave
-        libreoffice
     ]);
 }

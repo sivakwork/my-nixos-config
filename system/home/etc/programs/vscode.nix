@@ -1,4 +1,4 @@
-{ lib,config, pkgs, inputs, hostName, ...}:
+{ lib, config, pkgs, inputs, hostName, ...}:
 let 
     condition = (config.home.username == "sivak" && (hostName == "nixos" || hostName == "laptop"));
 in

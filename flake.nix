@@ -33,6 +33,9 @@
 
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    # Noctalia
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
   };
 
   outputs = inputs:
