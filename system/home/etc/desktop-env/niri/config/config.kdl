@@ -357,6 +357,6 @@ include "keybinds.kdl"
 spawn-at-startup "noctalia-shell"
 
 cursor {
-    xcursor-theme "Bibata-Original-Ice"
-    xcursor-size 36
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 25
 }
