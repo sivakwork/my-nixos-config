@@ -4,7 +4,8 @@
 
     environment.systemPackages = with pkgs; [
         # Toolchain
-        clang_22
+        flutter
+        pkg-config
     ];
     
 }
