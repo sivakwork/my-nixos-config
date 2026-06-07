@@ -12,13 +12,13 @@ in {
       "nmi_watchdog=0"
     ];
     loader.efi.canTouchEfiVariables = true;
-    loader.grub = lib.mkIf (hostName == "laptop") {
-        enable = true;
-        device = "nodev"; # "nodev" is used for UEFI
-        efiSupport = true;
-        zfsSupport = true;
+    loader.grub =  {
+        enable = hostName == ("laptop" || hostName == "vps");
+        device = if (hostName == "laptop") then "nodev" else "/dev/vda"; # "nodev" is used for UEFI
+        efiSupport = lib.mkIf (hostName == "laptop") true;
+        zfsSupport = lib.mkIf (hostName == "laptop") true;
     };
-    loader.systemd-boot = lib.mkIf (hostName == "server" || hostName == "nixvm" || hostName == "nixos") {
+    loader.systemd-boot = lib.mkIf (hostName == "server" || hostName == "nixos") {
       enable = true;
       configurationLimit = 5;
     };

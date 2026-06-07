@@ -1,5 +1,6 @@
+{ hostName, lib, ... }:
 {
-  services.pipewire = {
+  services.pipewire = lib.mkIf hostName != "vps" {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;

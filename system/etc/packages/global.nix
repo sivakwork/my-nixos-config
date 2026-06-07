@@ -11,7 +11,6 @@
         busybox # Commons
         age # Age Cryptographys
         psmisc # Processes sum
-        nix-fast-build
         
         # Networking
         sshfs
@@ -20,7 +19,7 @@
         zfs
     ];
 
-        nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)  [
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)  [
         # Nvidia
         "nvidia-kernel-modules"
         "nvidia-x11"
