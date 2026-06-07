@@ -13,5 +13,6 @@
 
         # Audio / Video
         pavucontrol
+        kodi
     ]);
 }

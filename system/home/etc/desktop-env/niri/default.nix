@@ -1,6 +1,6 @@
 { hostName, lib, inputs, ... }:
 
-{
+if hostName == "nixos" then {
   imports = [
     inputs.noctalia.homeModules.default
   ];
@@ -58,4 +58,4 @@
       };
     };
   };
-}
+} else {}
