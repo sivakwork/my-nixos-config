@@ -6,6 +6,7 @@
     ports = [ 
       "8096:8096"
     ];
+    dependsOn = [ "gluetun" ];
 
     volumes = [
       "/srv/media/jellyfin/config:/config"

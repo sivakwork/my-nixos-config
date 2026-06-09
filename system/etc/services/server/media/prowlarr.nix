@@ -2,6 +2,7 @@
   virtualisation.oci-containers.containers.prowlarr = {
     image = "lscr.io/linuxserver/prowlarr";
     extraOptions = [ "--network=container:gluetun" ];
+    dependsOn = [ "gluetun" ];
     environment = {
       PUID = "1000";
       PGID = "1000";

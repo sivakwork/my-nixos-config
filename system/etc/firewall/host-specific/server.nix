@@ -8,10 +8,9 @@
             25565 # Minecraft Java
             8080 # Kodi
             8096 # Jellyfin
-            8701  # qBittorrent Web UI
+            9091  # qBittorrent Web UI
             7878  # Radarr
             8989  # Sonarr
-            8686  # Lidarr
             6767  # Bazarr
             9696  # Prowlarr
             8191  # FlareSolverr

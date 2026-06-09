@@ -2,6 +2,7 @@
   virtualisation.oci-containers.containers.bazarr = {
     image = "lscr.io/linuxserver/bazarr";
     extraOptions = [ "--network=container:gluetun" ];
+    dependsOn = [ "gluetun" ];
     environment = {
       PUID = "1000";
       PGID = "1000";

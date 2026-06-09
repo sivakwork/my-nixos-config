@@ -10,6 +10,7 @@
         inetutils # Networking
         busybox # Commons
         age # Age Cryptographys
+        ssh-to-age # stuff
         psmisc # Processes sum
         
         # Networking

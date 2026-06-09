@@ -6,6 +6,7 @@
         # Toolchain
         flutter
         pkg-config
+        bun
     ];
     services.flatpak.enable = true;
 }

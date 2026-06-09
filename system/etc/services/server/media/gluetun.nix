@@ -3,7 +3,7 @@
   virtualisation.oci-containers.containers.gluetun = {
     image = "qmcgaw/gluetun";
     ports = [
-      "8701:8701"      # qBittorrent Web UI
+      "9091:9091"      # qBittorrent Web UI
       "6881:6881"      # Torrent
       "6881:6881/udp"  # Torrent
       "7878:7878"      # Radarr
@@ -12,7 +12,9 @@
       "6767:6767"      # Bazarr
       "9696:9696"      # Prowlarr
       "8191:8191"      # FlareSolverr
+      "44779:44779"
     ];
+    
     environment = {
       VPN_TYPE = "openvpn";
       VPN_SERVICE_PROVIDER = "private internet access";
@@ -25,7 +27,7 @@
     environmentFiles = [
       config.sops.templates.gluetun_env.path
     ];  
-    volumes = [ "./gluetun:/gluetun" ];
+    volumes = [ "/srv/media/gluetun:/gluetun" ];
     
     extraOptions = [
       "--cap-add=NET_ADMIN"

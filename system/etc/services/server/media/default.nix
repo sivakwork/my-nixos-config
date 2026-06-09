@@ -12,8 +12,10 @@ in
         
         "d /srv/media/content 0755 root root -"
         "d /srv/media/downloads 0755 root root -"
+        "d /srv/media/watch 0755 root root -"
       
-        "d /srv/media/qbittorrent 0755 root root -"
+        "d /srv/media/gluetun 0755 root root -"
+        "d /srv/media/transmission 0755 root root -"
         "d /srv/media/jellyseerr 0755 root root -"
         "d /srv/media/radarr 0755 root root -"
         "d /srv/media/sonarr 0755 root root -"
