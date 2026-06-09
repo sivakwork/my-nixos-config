@@ -10,7 +10,7 @@
     
     virtualisation.oci-containers.containers.nginx = {
         image = "jc21/nginx-proxy-manager:latest";
-        environment.TZ = "America/Torontoa";
+        environment.TZ = "America/Toronto";
         volumes = [
             "/srv/containers/nginx/data:/data"
             "/srv/containers/nginx/letsencrypt:/etc/letsencrypt"
