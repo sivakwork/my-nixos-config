@@ -7,5 +7,5 @@
         flutter
         pkg-config
     ];
-    
+    services.flatpak.enable = true;
 }

@@ -13,7 +13,7 @@ in {
     ];
     loader.efi.canTouchEfiVariables = true;
     loader.grub =  {
-        enable = hostName == ("laptop" || hostName == "vps");
+        enable = (hostName == "laptop" || hostName == "vps");
         device = if (hostName == "laptop") then "nodev" else "/dev/vda"; # "nodev" is used for UEFI
         efiSupport = lib.mkIf (hostName == "laptop") true;
         zfsSupport = lib.mkIf (hostName == "laptop") true;

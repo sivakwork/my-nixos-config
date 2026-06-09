@@ -2,13 +2,15 @@
 
 {
     systemd.tmpfiles.rules = [
+        "d /srv/containers 0755 root root -"
+        "d /srv/containers/nginx 0755 root root -"
         "d /srv/containers/nginx/data 0755 root root -"
         "d /srv/containers/nginx/letsencrypt 0755 root root -"
     ];
     
     virtualisation.oci-containers.containers.nginx = {
         image = "jc21/nginx-proxy-manager:latest";
-        environment.TZ = "America/Montreal";
+        environment.TZ = "America/Torontoa";
         volumes = [
             "/srv/containers/nginx/data:/data"
             "/srv/containers/nginx/letsencrypt:/etc/letsencrypt"
