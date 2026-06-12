@@ -354,6 +354,7 @@ layer-rule {
 }
 
 include "keybinds.kdl"
+include "displays.kdl"
 spawn-at-startup "noctalia-shell"
 
 cursor {

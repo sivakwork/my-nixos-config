@@ -1,0 +1,11 @@
+output "Dell Inc. DELL P2016 50P7W83FAGLB" {
+    mode "1440x900@74.984"
+    position x=0 y=0
+    scale 1.0
+}
+
+output "Microstep MSI MAG240CR 4719072694449" {
+    mode "1920x1080@165.001"
+    position x=1440 y=0
+    scale 1.0
+}
