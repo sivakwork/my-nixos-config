@@ -1,4 +1,6 @@
+{ lib, hostName, ... }:
 {
+  environment.sessionVariables.SOPS_AGE_KEY_FILE = "/var/lib/sops-nix/key.txt";
   sops = {
     defaultSopsFile = ../../../secrets/global.yaml;
     validateSopsFiles = false;
@@ -9,7 +11,6 @@
       generateKey = true;
     };
 
-    secrets = {
-    };
+    secrets = {};
   };
 }

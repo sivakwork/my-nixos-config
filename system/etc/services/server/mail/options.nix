@@ -12,11 +12,11 @@
     ssl_tls = {
       key = lib.mkOption {
         type = lib.types.str;
-        default = "/srv/containers/nginx/letsencrypt/live/npm-2/privkey.pem";
+        default = "/var/lib/acme/sivak.work/privkey.pem";
       };
       fullchain = lib.mkOption {
         type = lib.types.str;
-        default = "/srv/containers/nginx/letsencrypt/live/npm-2/fullchain.pem";
+        default = "/var/lib/acme/sivak.work/fullchain.pem";
       };
     };
   };
