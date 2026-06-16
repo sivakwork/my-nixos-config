@@ -1,6 +1,6 @@
 { config, lib, pkgs, projectLib, hostName, ... }:
 let
-  condition = hostName == "server" || hostName == "nixos";
+  condition = hostName == "server" || hostName == "node" || hostName == "nixos";
   mkIfHost = projectLib.mkif_host;
 in
 {

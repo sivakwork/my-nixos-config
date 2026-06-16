@@ -1,8 +1,4 @@
-{ lib, ... }:
-let 
-  diskoUtils = import ../../disko-utils/default.nix { inherit lib; };
-  mkBase = diskoUtils.mkBase;
-in {
+{
   disko.devices = {
     disk = {
       root = {
