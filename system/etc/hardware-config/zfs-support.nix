@@ -1,6 +1,6 @@
 { config, lib, hostName, pkgs, modulesPath, ... }:
 
-lib.mkIf (hostName == "server" || hostName == "laptop") {
+lib.mkIf (hostName == "server" || hostName == "laptop" || hostName == "node") {
   boot.initrd.systemd.enable = true;
   boot.initrd.supportedFilesystems = [ "zfs" ];
   boot.initrd.availableKernelModules = [
