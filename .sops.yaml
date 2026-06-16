@@ -6,11 +6,13 @@ keys:
     - &server age1ew9sa35c47lqxrdw3k8aaa0ucc38wscwdytds6de6y4upp7kvcas492l8p # /etc/ssh
     - &laptop age13vrhqtd3ljwxvnqh7662f0d65e8m05lll6dtmgvzms4d9mw87efqcjyn9s # /etc/ssh
     - &vps age1ttz8fgx48yw2z0smcker2ltch95a3neh8mq608dv9hdtqup37evqmaue6f # /etc/ssh
+    - &node age1jcdj6hdd2f3vdntwquajr7gn43fqqld5ha42afv3vpen47qz0sxsfm9gpg # /etc/ssh
   - &masterkey age1d5kndnmdhvqsg9l2pe8a692jll2ugfyyx3vtteqwsrn32a2elp8qlhy4yj
 creation_rules:
   - path_regex: secrets/global.yaml
     key_groups:
       - age:
+        - *node
         - *sivak
         - *nixos
         - *server
@@ -51,6 +53,7 @@ creation_rules:
   - path_regex: secrets/etc/cloudflare\.yaml
     key_groups:
       - age:
+          - *node
           - *vps
           - *server
           - *masterkey
