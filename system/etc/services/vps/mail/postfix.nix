@@ -27,7 +27,7 @@
       virtual_mailbox_base = "/srv/mail/vmail"; # base where to check if mailbox exists
       # |
       # V
-      virtual_transport = "lmtp:unix:/var/spool/postfix/private/dovecot-lmtp"; # deliver it off to dovecot
+      virtual_transport = "lmtp:10.100.0.1:24"; # deliver it off to dovecot
       
       # Apprently irelevant using dovecot but why not 
       virtual_uid_maps = "static:989";
@@ -40,15 +40,11 @@
 
       # SASL Authentication
       smtpd_sasl_type = "dovecot";
-      smtpd_sasl_path = "/var/spool/postfix/private/auth";
+      smtpd_sasl_path = "inet:10.100.0.1:23";
       smtpd_sasl_auth_enable = "yes";
 
       # --- OUTBOUND ---
-      relayhost = [ "[mail.smtp2go.com]:2525" ];
-      smtp_sasl_password_maps = "hash:/srv/mail/postfix/sasl_passwd";
-      smtp_sasl_auth_enable = "yes";
       smtp_tls_security_level = "encrypt";
-      smtp_sasl_security_options = "noanonymous";
       header_size_limit = "4096000";
       smtp_tls_CAfile = "/etc/ssl/certs/ca-certificates.crt";
 

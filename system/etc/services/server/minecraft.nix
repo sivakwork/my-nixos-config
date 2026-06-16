@@ -12,11 +12,11 @@
     environment = {
       EULA = "TRUE";
       TYPE = "FABRIC";
-      VERSION = "LATEST";
-      USE_AIKAR_FLAGS = "true";
+      VERSION = "26.1.2";
       ENABLE_RCON = "true";
       RCON_PASSWORD = "rcon";
-      MEMORY = "4G";
+      INIT_MEMORY = "2G";
+      MAX_MEMORY = "6G";
       TZ = "UTC";
     };
 

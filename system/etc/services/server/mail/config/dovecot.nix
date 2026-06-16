@@ -1,21 +1,20 @@
 { config, ... }:
 
 {
-  environment.etc."/srv/mail/dovecot/auth.conf" = {
-    text = ''
+  sops.templates."dovecot/auth.conf" = {
+    content = ''
       service auth {
-        unix_listener /var/spool/postfix/private/auth {
-          mode = 0660
-          user = postfix
-          group = postfix
+        inet_listener auth {
+          port = 23
         }
       }
     '';
     mode = "0444";
-    user = "dovecot2";
+    owner = "dovecot2";
+    restartUnits = [ "dovecot.service" ];
   };
 
-  sops.templates."dovecot/db.cf" = {
+  sops.templates."dovecot/db.conf" = {
     path = "/srv/mail/dovecot/db.conf";
     owner = "dovecot2";
     mode = "0400";
@@ -52,10 +51,10 @@
     restartUnits = [ "dovecot.service" ];
   };
   
-  environment.etc."/srv/mail/dovecot/inbox.conf" = {
-    user = "dovecot2";
+  sops.templates."dovecot/inbox.conf" = {
+    owner = "dovecot2";
     mode = "0400";
-    text = ''
+    content = ''
       namespace inbox {
         inbox = yes
         mailbox Drafts {
@@ -86,17 +85,16 @@
         }
       }
     '';
+    restartUnits = [ "dovecot.service" ];
   };
 
-  environment.etc."/srv/mail/dovecot/lmtp.conf" = {
-    user = "dovecot2";
+  sops.templates."dovecot/lmtp.conf" = {
+    owner = "dovecot2";
     mode = "0400";
-    text = ''
+    content = ''
       service lmtp {
-        unix_listener /var/spool/postfix/private/dovecot-lmtp {
-          mode = 0600
-          user = postfix
-          group = postfix
+        inet_listener lmtp {
+          port = 24
         }
       }
 
@@ -104,22 +102,17 @@
         mail_plugins = sieve
       }
     '';
+    restartUnits = [ "dovecot.service" ];
   };
 
-  environment.etc."/srv/mail/dovecot/sieve.conf" = {
-    user = "dovecot2";
+  sops.templates."dovecot/sieve.conf" = {
+    owner = "dovecot2";
     mode = "0400";
-    text = ''
+    content = ''
     sieve_script default {
       path = /srv/mail/dovecot/sieve/default.sieve
     }
     '';
+    restartUnits = [ "dovecot.service" ];
   };
-
-  systemd.services.dovecot.restartTriggers = [
-    config.environment.etc."/srv/mail/dovecot/auth.conf".source
-    config.environment.etc."/srv/mail/dovecot/inbox.conf".source
-    config.environment.etc."/srv/mail/dovecot/lmtp.conf".source
-    config.environment.etc."/srv/mail/dovecot/sieve.conf".source
-  ];
 }

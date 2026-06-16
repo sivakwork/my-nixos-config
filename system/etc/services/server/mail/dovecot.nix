@@ -31,11 +31,11 @@
       dovecot_storage_version = "2.4.4";
     };
     includeFiles = [
-      "/srv/mail/dovecot/auth.conf"
-      "/srv/mail/dovecot/db.conf"
-      "/srv/mail/dovecot/lmtp.conf"
-      "/srv/mail/dovecot/inbox.conf"
-      "/srv/mail/dovecot/sieve.conf"
+      config.sops.templates."dovecot/auth.conf".path
+      config.sops.templates."dovecot/db.conf".path
+      config.sops.templates."dovecot/lmtp.conf".path
+      config.sops.templates."dovecot/inbox.conf".path
+      config.sops.templates."dovecot/sieve.conf".path
     ];
   };
 

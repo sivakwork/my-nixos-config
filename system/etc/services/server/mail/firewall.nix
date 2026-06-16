@@ -1,10 +1,10 @@
 {
   networking.firewall.allowedTCPPorts = [
-    25
     993
-    465 
-    587 
-    11334 # rspamd
+    587
+    23 # inet
+    24 # inet
+    5432 # database
     8000 # postfixadmin
   ];
 }

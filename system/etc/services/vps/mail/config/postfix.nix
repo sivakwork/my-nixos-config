@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let 
   start = ''
-      hosts=localhost
+      hosts=10.100.0.1
       dbname=postfixadmin
       user=postfixadmin
       password='';

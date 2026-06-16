@@ -44,6 +44,7 @@ creation_rules:
   - path_regex: secrets/etc/mail\.yaml
     key_groups:
       - age:
+          - *vps
           - *server
           - *masterkey
 
