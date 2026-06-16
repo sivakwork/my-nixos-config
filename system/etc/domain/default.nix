@@ -1,5 +1,5 @@
 { projectLib, hostName, ... }:
 
-if ( hostName == "vps" || hostName == "server" || hostName == "redvr" ) then {
+if ( hostName == "vps" || hostName == "server" || hostName == "node" ) then {
   imports = projectLib.import_helpers.importFiles ./.;
 } else {}
