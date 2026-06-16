@@ -27,8 +27,13 @@
         allowedIPs = [ "10.100.0.1/32" ];
       }
       {
-        publicKey = "zBX5/M1qWJKBlVxPfGL3YQJFDI1gOD9Zctd/MkKeJTg="; # Phone
+        publicKey = "YkKNQExPWva2GQCKZ/JJjMa5jK1YcAUrR5a+Uhxi8QM="; # Node
         allowedIPs = [ "10.100.0.3/32" ];
+      }
+      
+      {
+        publicKey = "zBX5/M1qWJKBlVxPfGL3YQJFDI1gOD9Zctd/MkKeJTg="; # Phone
+        allowedIPs = [ "10.100.0.100/32" ];
       }
     ];
   };
