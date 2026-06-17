@@ -5,5 +5,8 @@
     modesetting.enable = true;
     nvidiaSettings = true;
     open = true;
+    powerManagement = {
+      enable = true;
+    };
   };
 }
