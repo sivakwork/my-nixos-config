@@ -17,12 +17,6 @@
                 mountOptions = [ "nofail" "umask=0077" ];
               };
             };
-            swap = {
-              size = "4G";
-              content = {
-                type = "swap";
-              };
-            };
             zfs = {
               size = "100%";
               content = {
