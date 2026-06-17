@@ -1,6 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hostName, ... }:
 
-{
+if hostName == "server" then {
   services.postgresql = {
     enable = true;
     enableTCPIP = true;
@@ -10,4 +10,4 @@
       host    all    all    10.100.0.0/16    scram-sha-256
     '';
   };
-}
+} else {}

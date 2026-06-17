@@ -57,3 +57,9 @@ creation_rules:
           - *vps
           - *server
           - *masterkey
+
+  - path_regex: secrets/etc/wordpress\.yaml
+    key_groups:
+      - age:
+          - *node
+          - *masterkey
