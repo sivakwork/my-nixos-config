@@ -22,7 +22,6 @@ in
     ips = [ "${assigned_ips.vps}/24" ];
     listenPort = 51820;
     privateKeyFile = "/var/keys/wg0-priv-key";
-    generatePrivateKeyFile = true;
 
     peers = [
       {

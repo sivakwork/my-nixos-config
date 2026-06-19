@@ -15,7 +15,6 @@ in
         ips = [ "${assigned_ips.node}/24" ];
         listenPort = 51820;
         privateKeyFile = "/var/keys/wg0-priv-key";
-        generatePrivateKeyFile = true;
 
         peers = [
              {
