@@ -6,8 +6,8 @@ in
 {
     networking.nat = {
         enable = true;
-        externalInterface = "enp3s0";
-        internalInterfaces = [ "wlol" ];
+        externalInterface = "wlol";
+        internalInterfaces = [ "wg0" ];
         enableIPv6 = false;
     };
 
