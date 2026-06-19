@@ -20,7 +20,7 @@ in
             {
                 publicKey = "G7aVXeBq67otVfcpJBLy18o/kzTreanDpPHKvar2iEo="; # Connet To VPS
                 endpoint = "sivak.work:51820";
-                allowedIPs = [ "${assigned_ips.vps}/32" ];
+                allowedIPs = [ "10.100.0.0/24" ];
                 persistentKeepalive = 25;
             }
             
