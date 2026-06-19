@@ -6,7 +6,6 @@
         flutter
         pkg-config
         bun
-        nodejs
     ];
     services.flatpak.enable = true;
 }

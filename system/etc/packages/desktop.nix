@@ -14,5 +14,8 @@
         # Audio / Video
         pavucontrol
         kodi
+
+        # Development
+        nodejs
     ]);
 }
