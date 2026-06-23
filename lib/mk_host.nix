@@ -15,6 +15,7 @@ in hostName: extra:
     modules = included_files ++ [
        inputs.sops-nix.nixosModules.sops
        inputs.disko.nixosModules.disko
+       inputs.vscode-server.nixosModules.default
        inputs.home-manager.nixosModules.home-manager
         {
             home-manager.extraSpecialArgs = lib.recursiveUpdate { inherit inputs; inherit hostName; inherit projectLib; } (extra.specialArgs or {});

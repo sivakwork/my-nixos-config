@@ -9,4 +9,13 @@ if ( hostName == "nixos" ) then {
     virtualisation.libvirtd.enable = true;
     virtualisation.libvirtd.qemu.package = pkgs.qemu_kvm;
     programs.virt-manager.enable = true;
+} else if ( hostName == "node" || hostName == "server" || hostName == "vps" ) then {
+    virtualisation = {
+        containers.enable = true;
+        podman = {
+            enable = true;
+            dockerCompat = true;
+            defaultNetwork.settings.dns_enabled = true;
+        };
+    };
 } else {}

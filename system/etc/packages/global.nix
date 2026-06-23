@@ -18,6 +18,9 @@
 
         # Storage
         zfs
+
+        # Development
+        nodejs
     ];
 
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)  [
