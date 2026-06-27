@@ -1,4 +1,4 @@
 { hostName, ... }: 
 {
-  services.vscode-server.enable = (hostName == "node" || hostName == "server");
+  services.vscode-server.enable = (hostName == "node" || hostName == "server" || hostName == "nixos");
 }
