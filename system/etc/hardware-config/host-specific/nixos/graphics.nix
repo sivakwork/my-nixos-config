@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   nixpkgs.config.cudaSupport = true;
   hardware.graphics.enable = true;
@@ -5,9 +6,10 @@
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;
-    open = true;
+    open = false;
     powerManagement = {
       enable = true;
     };
+     package = config.boot.kernelPackages.nvidiaPackages.stable; 
   };
 }

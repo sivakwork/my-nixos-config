@@ -1,6 +1,7 @@
 { config, lib, ... }:
 
 {
+  networking.firewall.allowedTCPPorts = [ 25565 ];
   systemd.tmpfiles.rules = [
     "d /srv/minecraft 0750 1000 1000 -"
   ];
@@ -28,7 +29,6 @@
 
     ports = [
       "25565:25565"
-      "19132:19132/udp"
     ];
 
     extraOptions = [

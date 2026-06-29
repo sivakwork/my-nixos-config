@@ -28,6 +28,7 @@ if hostName == "nixos" then {
           left = [
             {
               id = "ControlCenter";
+              useDistroLogo = true;
             }
             {
               id = "Bluetooth";
@@ -51,7 +52,7 @@ if hostName == "nixos" then {
           ];
         };
       };
-      colorSchemes.predefinedScheme = "Monochrome";
+      colorSchemes.predefinedScheme = "Github Dark";
       location = {
         monthBeforeDay = true;
         name = "Montreal, Canada";

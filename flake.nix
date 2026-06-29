@@ -35,7 +35,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     # Noctalia
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.url = "github:noctalia-dev/noctalia/legacy-v4";
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
