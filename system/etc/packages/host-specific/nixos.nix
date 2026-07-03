@@ -7,6 +7,8 @@
         pkg-config
         bun
         kdePackages.okular
+        cmake
+        clang
         (rWrapper.override {
             packages = with pkgs.rPackages; [
                 ggplot2
