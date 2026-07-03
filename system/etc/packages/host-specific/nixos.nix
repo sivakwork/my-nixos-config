@@ -6,6 +6,12 @@
         flutter
         pkg-config
         bun
+        kdePackages.okular
+        (rWrapper.override {
+            packages = with pkgs.rPackages; [
+                ggplot2
+            ];
+        })
     ];
     services.flatpak.enable = true;
 }
