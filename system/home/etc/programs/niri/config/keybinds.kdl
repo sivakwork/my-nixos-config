@@ -15,8 +15,9 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "kitty"; }
-    Mod+D { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    Super+L { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
+    Mod+D { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+V { spawn-sh "noctalia msg panel-toggle clipboard"; }
+    Super+L { spawn-sh "noctalia msg session lock"; }
     Super+Z { spawn-sh "systemctl suspend"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -246,8 +247,8 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    // Mod+V       { toggle-window-floating; }
+    // Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
