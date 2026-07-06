@@ -1,5 +1,5 @@
-{ config, ... }:
-{
+{ config, hostName, ... }:
+if (hostName == "node") then {
   networking.firewall.allowedTCPPorts = [ 3456 ];
   services.vikunja = {
     enable = true;
@@ -22,4 +22,4 @@
     mode = "777"; # TOOO LAZYYYYYY
     sopsFile = ../../../secrets/etc/vikunja.yaml;
   };
-}
+} else {}
