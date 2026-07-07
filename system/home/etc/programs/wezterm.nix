@@ -1,3 +1,4 @@
+{ hostName, ... }:
 if hostName == "nixos" then {
   xdg.configFile."wezterm/wezterm.lua".force = true;
   programs.wezterm = {
