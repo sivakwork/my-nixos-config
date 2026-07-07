@@ -16,6 +16,15 @@
             nixcmd-gc-remote() {
                 ssh ''$1.local nix-collect-garbage -d
             }
+            nvim() {
+                if [ -n "$KITTY_WINDOW_ID" ]; then
+                    kitten @ set-spacing --match "id:$KITTY_WINDOW_ID" padding-left=0 padding-top=0 padding-bottom=0 padding-right=0
+                fi
+                command nvim "$@"
+                if [ -n "$KITTY_WINDOW_ID" ]; then
+                    kitten @ set-spacing --match "id:$KITTY_WINDOW_ID" default
+                fi
+            }
             export PS1='\[\e[38;5;33;1m\]\u\[\e[0m\] \[\e[3m\]in\[\e[0m\] \[\e[38;5;202m\]\w\[\e[0m\] \$ '
             rebuild-remote() {
                 case "''$1" in
