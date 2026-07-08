@@ -25,6 +25,10 @@ in
 
     peers = [
       {
+        publicKey = "T3DvlNbJkX08bqvoeuGMpAjimpSXe+OKg6csjYXjJzY=";
+        allowedIPs = [ "${assigned_ips.redserver}" ];
+      }
+      {
         publicKey = "gOrddYYR4/Cwkt2lQRqij7igplOzBzCLhA0n/bXriSY="; # Server
         allowedIPs = [ "${assigned_ips.server}/32" ];
       }
