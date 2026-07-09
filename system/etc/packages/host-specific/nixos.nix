@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 {
     programs.nix-ld.enable = true;
     environment.systemPackages = with pkgs; [
@@ -9,11 +9,7 @@
         kdePackages.okular
         cmake
         clang
-        (rWrapper.override {
-            packages = with pkgs.rPackages; [
-                ggplot2
-            ];
-        })
+        logisim-evolution
     ];
     services.flatpak.enable = true;
 }
