@@ -18,4 +18,6 @@
         kdePackages.kio-extras #extra protocols support (sftp, fish and more)
         kdePackages.dolphin
   ];
+
+  services.flatpak.enable = true;
 }
