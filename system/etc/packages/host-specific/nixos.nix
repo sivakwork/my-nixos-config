@@ -8,6 +8,7 @@
         bun
         kdePackages.okular
         cmake
+        gnumake
         clang
         logisim-evolution
   
