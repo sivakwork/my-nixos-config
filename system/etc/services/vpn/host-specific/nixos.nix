@@ -18,7 +18,7 @@ in
 
         peers = [
           {
-            publicKey = "G7aVXeBq67otVfcpJBLy18o/kzTreanDpPHKvar2iEo="; # Connet To VPS
+            publicKey = "yotBQEU7bmrPUrfVs/kkjjX+mJcgupcONLsFGV56BlY="; # Connet To VPS
             endpoint = "sivak.work:51820";
             allowedIPs = [ "10.100.0.0/24" ];
             persistentKeepalive = 25;

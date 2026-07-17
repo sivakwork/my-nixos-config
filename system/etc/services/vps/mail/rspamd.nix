@@ -16,10 +16,11 @@
       "dkim_signing.conf".text = ''
         enabled = true;
         selector = "default";
-        domain = ${config.myMail.domain};
-        canonicalization = "relaxed/relaxed";
-        sign_headers = "From:To:Subject:Message-ID";
+        use_domain = "header";
         path = "/srv/mail/dkim/sivak.work.key";
+        sign_authenticated = true;
+        sign_local = true;
+        sign_inbound = false;
       '';
 
       "worker-controller.inc".text = ''
