@@ -3,6 +3,6 @@
 {
   programs.direnv = {
     enable = true;
-    enableZshIntergration = true;
+    enableZshIntegration = true;
   };
 }
