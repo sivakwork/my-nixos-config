@@ -1,6 +1,4 @@
 ''
-fastfetch
-
 rebuild-local() {
     nixos-rebuild switch --flake .#''$1 --target-host root@''$1.local
 }

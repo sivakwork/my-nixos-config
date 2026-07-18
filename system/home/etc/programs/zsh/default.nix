@@ -1,5 +1,3 @@
-{ config, pkgs, inputs, ...}:
-
 {
     programs.zsh = {
         enable = true;
@@ -27,4 +25,8 @@
 
         useTheme = "catppuccin_mocha";
     };
+
+  home.sessionPath = [
+    "$HOME/.config/emacs/bin"
+  ];
 }
