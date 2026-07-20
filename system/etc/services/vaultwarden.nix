@@ -20,7 +20,7 @@ if (hostName == "node") then {
         # thus without transport encryption.
         # If you use an external mail server, follow:
         #   https://github.com/dani-garcia/vaultwarden/wiki/SMTP-configuration
-        SMTP_HOST = "10.0.0.1";
+        SMTP_HOST = "10.100.0.2";
         SMTP_PORT = 25;
         SMTP_SECURITY = "off";
 

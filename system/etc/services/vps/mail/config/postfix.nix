@@ -39,29 +39,4 @@ in
     '';
     restartUnits = [ "postfix.service" ];
   };
-  
-  sops.templates."postfix/sasl_passwd" = {
-    owner = "postfix";
-    mode = "0400";
-    content = "${config.sops.placeholder."mail_sasl_passwd"}";
-    restartUnits = [ "postfix.service" ];
-  };
-
-  systemd.services.postfix-sasl-postmap = {
-    description = "Run postmap on sasl_passwd";
-    wantedBy = [ "postfix.service" ];
-    before = [ "postfix.service" ];
-    after = [ "local-fs.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = ''
-        touch /srv/mail/postfix/sasl_passwd
-        chmod 400 /srv/mail/posfix/sasl_passwd
-        chown postfix:postfix /srv/mail/posfix/sasl_passwd
-        ${pkgs.coreutils}/bin/cat > ${config.sops.templates."postfix/sasl_passwd".path} /srv/mail/postfix
-        ${pkgs.postfix}/bin/postmap /srv/mail/postfix/sasl_passwdt
-      '';
-      User = "root";
-    };
-  };
 }

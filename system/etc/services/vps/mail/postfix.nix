@@ -11,7 +11,7 @@
     settings.main = {
       mynetworks = [
         "127.0.0.0/8"
-        "::1"
+        "[::1]/128"
         "10.100.0.3/32"
       ];
       mydomain = config.myMail.domain;
