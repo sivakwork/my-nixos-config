@@ -9,6 +9,11 @@
     # domain of the email address that this postfix is hosting
     settings.master.smtpd.chroot = false;
     settings.main = {
+      mynetworks = [
+        "127.0.0.0/8"
+        "::1"
+        "10.100.0.3/32"
+      ];
       mydomain = config.myMail.domain;
       myhostname = config.myMail.host;
       myorigin = "$mydomain";
@@ -56,6 +61,12 @@
 
       inet_interfaces = "all";
       inet_protocols = "all";
+
+      smtpd_relay_restrictions = [
+        "permit_mynetworks"
+        "permit_sasl_authenticated"
+        "reject_unauth_destination"
+      ];
     };
   };
 }
