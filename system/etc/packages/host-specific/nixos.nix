@@ -11,6 +11,7 @@
         gnumake
         clang
         logisim-evolution
+        bitwarden-desktop
 
         kdePackages.qtsvg
         kdePackages.kio # needed since 25.11
@@ -19,5 +20,9 @@
         kdePackages.dolphin
   ];
 
-  services.flatpak.enable = true;
+    services.flatpak.enable = true;
+
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-39.8.10"
+    ];
 }

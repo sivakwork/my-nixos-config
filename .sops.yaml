@@ -19,24 +19,6 @@ creation_rules:
         - *laptop
         - *masterkey
     
-  - path_regex: secrets/hosts/laptop\.yaml
-    key_groups:
-      - age:
-          - *laptop
-          - *masterkey
-
-  - path_regex: secrets/hosts/nixos\.yaml
-    key_groups:
-      - age:
-          - *nixos
-          - *masterkey
-          
-  - path_regex: secrets/hosts/server\.yaml
-    key_groups:
-      - age:
-          - *server
-          - *masterkey
-
   - path_regex: secrets/users/sivak\.yaml
     key_groups:
       - age:

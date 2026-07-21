@@ -3,7 +3,7 @@
 let
     import_helpers = projectLib.import_helpers;
 in
-{
+if (true) then {} else {
     systemd.tmpfiles.rules = [
         "d /srv/media/ 0755 root root -"
         "d /srv/media/jellyfin 0755 root root -"
