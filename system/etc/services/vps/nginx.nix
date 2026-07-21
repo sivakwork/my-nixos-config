@@ -19,11 +19,14 @@
             "80:80"
             "81:81"
             "443:443"
+            "19132:19132/udp"
         ];
         extraOptions = [
             "--name=nginx-ui"
         ];
     };
+
+    networking.firewall.allowedUDPPorts = [ 19132 ];
 }
 
 # services:
