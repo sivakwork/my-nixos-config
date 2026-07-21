@@ -18,7 +18,7 @@ in {
         efiSupport = lib.mkIf (hostName == "laptop") true;
         zfsSupport = lib.mkIf (hostName == "laptop") true;
     };
-    loader.systemd-boot = lib.mkIf (hostName == "server" || hostName == "node" || hostName == "nixos") {
+    loader.systemd-boot = lib.mkIf (hostName == "server" || hostName == "node" || hostName == "edge" || hostName == "nixos") {
       enable = true;
       configurationLimit = 5;
     };
