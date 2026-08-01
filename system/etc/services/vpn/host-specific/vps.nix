@@ -44,7 +44,10 @@ in
         publicKey = "1FsFAPMWF1UoaDAFLIvnkXU6vJtXpsJN1g48KH+SYz8="; # nixos
         allowedIPs = [ "${assigned_ips.nixos}/32" ];
       }
-
+      {
+        publicKey = "q/T0kcdQJD5u5xIQ4vKu9nDYyXOACp3WLDM8KNx46Qo="; # edge
+        allowedIPs = [ "${assigned_ips.edge}/32" ];
+      }
       {
         publicKey = "zBX5/M1qWJKBlVxPfGL3YQJFDI1gOD9Zctd/MkKeJTg="; # Phone
         allowedIPs = [ "${assigned_ips.phone}/32" ];
