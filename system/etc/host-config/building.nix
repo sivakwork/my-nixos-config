@@ -37,9 +37,10 @@ if (hostName == "nixos") then {
     ];
 
     settings = {
-      max-jobs = "auto";
+      max-jobs = 1;
       cores = 0;
       builders-use-substitutes = true;
+      auto-optimise-store = true;
     };
   };
 } else {}

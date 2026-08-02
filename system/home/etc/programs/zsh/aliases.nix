@@ -1,5 +1,6 @@
 {
   rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
+  rebuild-me = "sudo nixos-rebuild switch --flake ~/nixos-config --option builders ''";
   nixcmd-gc = "nix-collect-garbage -d";
   rebuild-vps = "nixos-rebuild switch --flake .#vps --target-host root@sivak.work";
 }
