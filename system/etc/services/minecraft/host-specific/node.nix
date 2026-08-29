@@ -1,6 +1,6 @@
 { config, lib, ... }:
 
-{
+if (true) then {} else {
   systemd.tmpfiles.rules = [
     "d /srv/minecraft-aero 0750 1000 1000 -"
   ];

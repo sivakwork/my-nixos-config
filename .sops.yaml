@@ -44,6 +44,11 @@ creation_rules:
       - age:
           - *node
           - *masterkey
+  - path_regex: secrets/etc/zipline\.yaml
+    key_groups:
+      - age:
+          - *node
+          - *masterkey
   - path_regex: secrets/etc/vaultwarden\.yaml
     key_groups:
       - age:

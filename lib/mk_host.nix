@@ -17,6 +17,7 @@ in hostName: extra:
        inputs.disko.nixosModules.disko
        inputs.vscode-server.nixosModules.default
        inputs.home-manager.nixosModules.home-manager
+       inputs.codex-desktop-linux.nixosModules.default
         {
             home-manager.extraSpecialArgs = lib.recursiveUpdate { inherit inputs; inherit hostName; inherit projectLib; } (extra.specialArgs or {});
             nix.settings.experimental-features = [ "nix-command" "flakes" ];

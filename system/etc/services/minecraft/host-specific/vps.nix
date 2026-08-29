@@ -14,7 +14,7 @@
       environment = {
         MAPPING = ''
           mc.sivak.work=10.100.0.1:25565
-          mmc.sivak.work=10.100.0.3:25565
+          dc.sivak.work=10.100.0.6:25565
         '';
       };
     };

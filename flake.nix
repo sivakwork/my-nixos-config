@@ -38,6 +38,7 @@
     noctalia.url = "github:noctalia-dev/noctalia";
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
+    codex-desktop-linux.url = "github:ilysenko/codex-desktop-linux";
   };
 
   outputs = inputs:
